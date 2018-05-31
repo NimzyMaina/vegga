@@ -1,0 +1,25 @@
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
+using vegga.Models;
+
+namespace vegga.Controllers.Resources
+{
+    public class SaveVehicleResource
+    {
+         public int Id { get; set; }
+        public int ModelId { get; set; }
+        [Required]
+        public ContactResource Contact { get; set; }
+        public bool IsRegistered { get; set; }
+
+        // Navigation Props
+        public ICollection<int> Features { get; set; }
+
+        public SaveVehicleResource()
+        {
+            Features = new Collection<int>();
+        }
+    }
+}
